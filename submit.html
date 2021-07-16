@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>慈溪史志</title>
+  <title>路桥党史</title>
   <script src="./static/js/jquery-2.1.1.min.js"></script>
   <script src="./static/js/rem.js"></script>
   <script src="./static/com/swiper/swiper-bundle.min.js"></script>
@@ -215,16 +215,23 @@
       {value:'15:00',label:'15:00'},
       {value:'16:00',label:'16:00'}
     ]
-    function getCurrentDate() {
+    function getCurrentDate(timeDate) {
       var now = new Date();
+      if(timeDate){
+        now = timeDate;
+      }
       var year = now.getFullYear();
       var month = now.getMonth();
       var date = now.getDate();
       month = month + 1;
-      if (month < 10) month = "0" + month;
-      if (date < 10) date = "0" + date;
-      var time = year + "-" + month + "-" + date;
-      return time
+      if(timeDate){
+        return [year,month,date]
+      }else{
+        if (month < 10) month = "0" + month;
+        if (date < 10) date = "0" + date;
+        var time = year + "-" + month + "-" + date;
+        return time
+      }
     }
     function getSartDate(){
       var now=new Date()
@@ -237,9 +244,12 @@
       }
     }
     $('#picktime').on('click','.dateInput', function (e) {
+        var start=getSartDate()
+        var defaultData=getCurrentDate(start)
         weui.datePicker({
-            start:getSartDate(),
+            start:start,
             end: new Date().getFullYear()+4,
+            defaultValue:defaultData,
             onConfirm: function (result) {
               let dateArr=[]
               result.forEach((item,index)=>{
@@ -296,6 +306,7 @@
         return false
       }
         weui.picker(timeArr,{
+          defaultValue:[timeArr[0].value],
             onConfirm: function (result) {
               if(!result || !result[0]){
                 weui.confirm('请选择参观时间', {
@@ -336,9 +347,11 @@
       var formData={}
       for(var i=0;i<itemKey.length;i++){
         var formItemDom=$('.form_contentBox .'+itemKey[i])
-        formData[itemKey[i]]=formItemDom.attr('value')
+        formData[itemKey[i]]=formItemDom.val()
+        var placeholder=formItemDom.attr('placeholder')
+        console.log('表单数据'+itemKey[i],formData[itemKey[i]],placeholder)
         if(i<itemKey.length-2 && !formData[itemKey[i]]){
-          var tips=formItemDom.attr('placeholder')
+          var tips=placeholder
           if(['参观日期','参观时间'].indexOf(tips)!==-1){
             tips='请选择'+tips
           }
