@@ -1,0 +1,85 @@
+.pageBox {
+	width: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+	background: url('../img/bj.jpg') no-repeat top center #aea9a6;
+	background-size: 100% auto;
+	position: relative;
+}
+.mainBox {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 6.6rem;
+	height: auto;
+	padding: 0.05rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+.mainBox li {
+	width: 2rem;
+	height: 2rem;
+	margin: 0.05rem;
+	padding: 0.1rem;
+	background: #ffffff;
+	box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+.mainBox li a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.24rem;
+	color: #333;
+	text-align: center;
+	line-height: 0.34rem;
+}
+.mainBox li .icon {
+	width: auto;
+	height: 0.8rem;
+	margin: 0 auto 0.1rem;
+}
+.mainBox li .title {
+	font-size: 0.3rem;
+	font-weight: bold;
+	line-height: 0.4rem;
+}
+.mainBox li .desc {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.mainBox li.jj1 {
+	background: #e06665;
+	color: #ffffff;
+}
+.mainBox li .jj1_text {
+	color: #e06665;
+}
+.mainBox li.jj2 {
+	background: #ec6840;
+	color: #ffffff;
+}
+.mainBox li .jj2_text {
+	color: #ec6840;
+}
+.bold_text {
+	width: calc(100% - 5em);
+	flex: 1;
+	font-weight: bold;
+}
+.text_overHidden {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box !important;
+	/*! autoprefixer: off */
+	-webkit-box-orient: vertical;
+	/* autoprefixer: on */
+	-webkit-line-clamp: 1;
+}

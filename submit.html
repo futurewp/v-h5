@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>慈溪史志</title>
+  <script src="./static/js/jquery-2.1.1.min.js"></script>
+  <script src="./static/js/rem.js"></script>
+  <script src="./static/com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="./static/com/swiper/swiper-bundle.min.css">
+  <script src="./static/com/weui/weui.min.js"></script>
+  <link rel="stylesheet" href="./static/com/weui/weui.min.css">
+  <script src="./static/com/time/zepto.js"></script>
+  <script src="./static/com/time/zepto.mtimer.js"></script>
+  <link rel="stylesheet" href="./static/com/time/zepto.mtimer.css">
+  <link rel="stylesheet" href="./static/css/base.css">
+  <link rel="stylesheet" href="./static/css/submit.css">
+</head>
+<body>
+  <div id="formBox" class="pageBox active">
+    <div class="swiper-container bannerList">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./static/img/banner1.png" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="./static/img/banner2.gif" alt="">
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="tipsBox">
+      <p class="tips_title">说明</p>
+      <p>为保持良好的参观秩序，团队参观需提前两天预约。如遇重大活动或临时性闭馆，预约团队另行安排参观时间。</p>
+    </div>
+
+    <div class="form_contentBox">
+      <ul class="form_main">
+        <li>
+          <p class="label required">
+            <span>团队名称</span>
+          </p>
+          <div class="inputBox">
+            <input id="js_input" class="weui-input" placeholder="请填写团队名称"/>
+          </div>
+        </li>
+        <li>
+          <p class="label required">
+            <span>参观时间</span>
+          </p>
+          <div class="inputBox">
+            <input id="js_inpu picktime" class="weui-input" placeholder="请选择参观时间" readonly/>
+          </div>
+        </li>
+        <li>
+          <p class="label required">
+            <span>参观人数</span>
+          </p>
+          <div class="inputBox">
+            <input id="js_input" class="weui-input" placeholder="请填写计划参观人数"/>
+            <span>人</span>
+          </div>
+        </li>
+        
+        <li id="showIOSActionSheet">
+          <p class="label required">
+            <span>参观场馆</span>
+          </p>
+          <div class="inputBox">
+            <input id="js_input" class="weui-input" placeholder="请选择参观场馆" readonly/>
+          </div>
+        </li>
+        <li>
+          <p class="label required">
+            <span>联系人</span>
+          </p>
+          <div class="inputBox">
+            <input id="js_input" class="weui-input" placeholder="请填写联系人"/>
+          </div>
+        </li>
+        <li>
+          <p class="label required">
+            <span>联系方式</span>
+          </p>
+          <div class="inputBox">
+            <input id="js_input" class="weui-input" placeholder="请填写联系方式"  type="tel"  maxlength="11" />
+          </div>
+        </li>
+        <li>
+          <p class="label required">
+            <span>是否需要讲解</span>
+          </p>
+          <div class="inputBox end">
+            <label for="switchCP" class="weui-switch-cp">
+              <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked"/>
+              <div class="weui-switch-cp__box"></div>
+          </label>
+          </div>
+        </li>
+        <li>
+          <p class="label">
+            <span>计划参观时长</span>
+          </p>
+          <div class="inputBox">
+            <input id="js_input" class="weui-input" placeholder="请填写计划参观时长(选填)"/>
+          </div>
+        </li>
+      </ul>
+
+      <div class="form_btn">提&nbsp;交</div>
+    </div>
+  </div>
+  
+  
+
+
+
+  <div id="carefulBox" class="pageBox carefulBox">
+    <p class="care_title">
+      <span class="one">注</span>
+      <span>意事项</span>
+    </p>
+    <div class="care_content">
+      <p>1、请有序入场和出场，馆内严禁吸烟。</p>
+      <p>2、禁止携带违禁物品入馆，包括：易燃、易爆、易腐蚀、管制器械、宠物、体感车、滑轮等。</p>
+      <p>3、酗酒者、衣冠不整、举止不雅者谢绝入馆。</p>
+      <p>4、未成年人、无民事行为能力者、身体有潜在疾病者、行动不便者须有监护人陪同方可入馆参观。</p>
+      <p>5、文明参观，请保持馆内安静整洁，请勿触摸展厅内展品和模型，勿攀爬建筑和护栏，勿随意投掷、丢弃杂物。</p>
+      <p>6、爱护并正确使用馆内设施、物品，如有损坏，照价赔偿。</p>
+      <p>7、请勿在馆内追跑、打闹、喧哗。</p>
+      <p>8、在通道走廊、电梯等处请勿拥挤，注意人身和携物安全。</p>
+      <p>9、如遇各类突发事件，请服从工作人员指挥。</p>
+      <p>10、本展馆展示的内容，不作为行政审批的法律依据。</p>
+      <p>11、咨询、团队预约电话：63081950</p>
+    </div>
+  </div>
+  
+
+
+  <div class="changeBtnBox">
+    <div class="itemBtn active" show="formBox" id="formBox_btn">
+      <i></i>
+      <span>网上预约</span>
+    </div>
+    <div class="itemBtn" show="carefulBox"  id="carefulBox_btn">
+      <i></i>
+      <span>预约须知</span>
+    </div>
+  </div>
+
+
+
+
+<div>
+  <div class="weui-mask" id="iosMask" style="display: none;"></div>
+  <div class="weui-actionsheet" id="iosActionsheet">
+      <!-- <div class="weui-actionsheet__title">
+          <p class="weui-actionsheet__title-text">参观场馆</p>
+      </div> -->
+      <div class="weui-actionsheet__menu">
+          <div class="weui-actionsheet__cell" value="中共路路桥历史陈列馆">中共路路桥历史陈列馆</div>
+          <div class="weui-actionsheet__cell" value="戴大夫故居">戴大夫故居</div>
+      </div>
+      <div class="weui-actionsheet__action">
+          <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+      </div>
+  </div>
+</div>
+</body>
+</html>
+<script>
+  $(function () {
+    var swiper = new Swiper('.swiper-container',{
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      }
+    });
+    // 切换tab
+    $('.changeBtnBox').on('click','.itemBtn',function(e){
+      var showDom = $(e.currentTarget).attr('show')
+      var classList=['#formBox','#formBox_btn','#carefulBox','#carefulBox_btn']
+      classList.forEach(item=>{
+        $(item).removeClass('active')
+      })
+      $('#'+showDom).addClass('active')
+      $('#'+showDom+'_btn').addClass('active')
+    })
+    // 选择场馆
+    var $iosActionsheet = $('#iosActionsheet');
+    var $iosMask = $('#iosMask');
+    function hideActionSheet() {
+      $iosActionsheet.removeClass('weui-actionsheet_toggle');
+      $iosMask.fadeOut(200);
+    }
+    $iosMask.on('click', hideActionSheet);
+    $('#iosActionsheetCancel').on('click', hideActionSheet);
+    $("#showIOSActionSheet").on("click", function(){
+      $iosActionsheet.addClass('weui-actionsheet_toggle');
+      $iosMask.fadeIn(200);
+    });
+    $iosActionsheet.on('click','.weui-actionsheet__cell',function(e){
+      var val=$(e.currentTarget).attr('value')
+      if(val){
+        $("#showIOSActionSheet .inputBox input").attr('value',val)
+        hideActionSheet()
+      }
+    });
+
+    //选择时间
+    $('#picktime').mtimer();
+  })
+</script>

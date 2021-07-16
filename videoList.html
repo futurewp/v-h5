@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>慈溪史志</title>
+  <script src="./static/js/jquery-2.1.1.min.js"></script>
+  <script src="./static/js/rem.js"></script>
+  <script src="./static/com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="./static/com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./static/css/base.css">
+  <link rel="stylesheet" href="./static/css/videoList.css">
+</head>
+<body>
+  <div class="pageBox">
+    <div class="swiper-container bannerList">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./static/img/banner1.png" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="./static/img/banner2.gif" alt="">
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <ul class="contentlist">
+      <li>
+        <a class="itemInfoBox" href="./videoDetail.html">
+          <img class="itemImg" src="./static/img/banner1.png" alt="">
+          <div class="itemInfo">
+            <p class="title text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+            <p class="desc text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+          </div>
+        </a>
+        <div class="itemBtn">
+          <div class="playBtn"></div>
+          <p>03:22</p>
+        </div>
+      </li>
+      <li>
+        <a class="itemInfoBox" href="./videoDetail.html">
+          <img class="itemImg" src="./static/img/banner1.png" alt="">
+          <div class="itemInfo">
+            <p class="title text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+            <p class="desc text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+          </div>
+        </a>
+        <div class="itemBtn">
+          <div class="playBtn"></div>
+          <p>03:22</p>
+        </div>
+      </li>
+      <li>
+        <a class="itemInfoBox" href="./videoDetail.html">
+          <img class="itemImg" src="./static/img/banner1.png" alt="">
+          <div class="itemInfo">
+            <p class="title text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+            <p class="desc text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+          </div>
+        </a>
+        <div class="itemBtn">
+          <div class="playBtn"></div>
+          <p>03:22</p>
+        </div>
+      </li>
+      <li>
+        <a class="itemInfoBox" href="./videoDetail.html">
+          <img class="itemImg" src="./static/img/banner1.png" alt="">
+          <div class="itemInfo">
+            <p class="title text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+            <p class="desc text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+          </div>
+        </a>
+        <div class="itemBtn">
+          <div class="playBtn"></div>
+          <p>03:22</p>
+        </div>
+      </li>
+      <li>
+        <a class="itemInfoBox" href="./videoDetail.html">
+          <img class="itemImg" src="./static/img/banner1.png" alt="">
+          <div class="itemInfo">
+            <p class="title text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+            <p class="desc text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+          </div>
+        </a>
+        <div class="itemBtn">
+          <div class="playBtn"></div>
+          <p>03:22</p>
+        </div>
+      </li>
+      <li>
+        <a class="itemInfoBox" href="./videoDetail.html">
+          <img class="itemImg" src="./static/img/banner1.png" alt="">
+          <div class="itemInfo">
+            <p class="title text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+            <p class="desc text_overHidden2">
+              民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+            </p>
+          </div>
+        </a>
+        <div class="itemBtn">
+          <div class="playBtn"></div>
+          <p>03:22</p>
+        </div>
+      </li>
+    </ul>
+
+    <audio id="audio"></audio>
+  </div>
+</body>
+</html>
+<script>
+  $(function () {
+    var swiper = new Swiper('.swiper-container',{
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      }
+    });
+    $('.contentlist').on('click','.playBtn',function(e){
+      var btnClassList = e.currentTarget.className
+      var btnStatus =btnClassList.indexOf('active')!==-1
+      var videoSrc = './static/video/demo.mp3'
+      var myaudio = $('#audio')[0]
+      const curVideo=myaudio.getAttribute('src')
+      if(!curVideo || curVideo!==videoSrc){
+        myaudio.setAttribute('src',videoSrc)
+      }
+      if(!btnStatus && myaudio.paused){
+        myaudio.play();
+        $(e.currentTarget).addClass('active')
+      }else if(btnStatus && myaudio.played){
+        myaudio.pause();
+        $(e.currentTarget).removeClass('active')
+      }
+    })
+  })
+</script>

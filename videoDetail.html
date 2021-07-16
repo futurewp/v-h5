@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>慈溪史志</title>
+  <script src="./static/js/jquery-2.1.1.min.js"></script>
+  <script src="./static/js/rem.js"></script>
+  <script src="./static/com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="./static/com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./static/css/base.css">
+  <link rel="stylesheet" href="./static/css/videoDetail.css">
+</head>
+<body>
+  <div class="pageBox">
+    <div class="swiper-container bannerList">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./static/img/banner1.png" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="./static/img/banner2.gif" alt="">
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="playBox">
+      <div class="itemBtn">
+        <div class="playBtn"></div>
+      </div>
+      <div class="itemInfo">
+        <p class="title text_overHidden">
+          民族独立人民解放的杭州篇章民族独立人民解放的杭州篇章
+        </p>
+        <p class="desc text_overHidden">
+          03:22
+        </p>
+      </div>
+    </div>
+
+    <div class="contentBox">
+      <p>观众朋友，您好，欢迎您参观中国共产党杭州历史馆。</p>
+      
+      <p>中国共产党杭州历史馆以光荣与梦想为主题，展示中国共产党杭州地方党组织带领全市人民从血雨腥风的革命岁月，激情燃烧的建设时期，波澜壮阔的改革年代一路走来并创造了灿烂辉煌的历史，着重是以习近平同志为核心的党中央引领中国特色社会主义进入新时代以来杭州经济社会各项事业在发展中取得的辉煌成就。</p>
+      
+      <p>这里是第一展厅，“民族独立人民解放的杭州篇章”，展示的是1919年到1949年党带领杭州人民进行革命的历史。首先印入我们眼帘的全馆的核心造型“思想塔”，它高7米，宽2.2米，顶部有近百年历史建筑梁和轩的展示，在“思想塔”洁白的光纤丝上布设了杭州新民主主义革命时期重要的历史事件、时间节点和党史人物的姓名。底部造型是解放以前杭州地图的形状，在这个造型上播放有这一时期的重要历史事件。</p>
+      
+      <p>1840年鸦片战争后到1919年五四运动前期，为了民族复兴，无数仁人志士、不屈不挠、前赴后继，进行了可歌可泣的斗争。</p>
+
+    </div>
+
+
+    <audio id="audio"></audio>
+  </div>
+</body>
+</html>
+<script>
+  $(function () {
+    var swiper = new Swiper('.swiper-container',{
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      }
+    });
+    $('.playBox').on('click','.playBtn',function(e){
+      var btnClassList = e.currentTarget.className
+      var btnStatus =btnClassList.indexOf('active')!==-1
+      var videoSrc = './static/video/demo.mp3'
+      var myaudio = $('#audio')[0]
+      const curVideo=myaudio.getAttribute('src')
+      if(!curVideo || curVideo!==videoSrc){
+        myaudio.setAttribute('src',videoSrc)
+      }
+      if(!btnStatus && myaudio.paused){
+        myaudio.play();
+        $(e.currentTarget).addClass('active')
+      }else if(btnStatus && myaudio.played){
+        myaudio.pause();
+        $(e.currentTarget).removeClass('active')
+      }
+    })
+  })
+</script>
