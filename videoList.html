@@ -144,20 +144,34 @@
       }
     });
     $('.contentlist').on('click','.playBtn',function(e){
+      var myaudio = $('#audio')[0]
+      if(myaudio.played){
+          myaudio.pause();
+          myaudio.setAttribute('src','')
+      }
+      
       var btnClassList = e.currentTarget.className
       var btnStatus =btnClassList.indexOf('active')!==-1
       var videoSrc = './static/video/demo.mp3'
-      var myaudio = $('#audio')[0]
       const curVideo=myaudio.getAttribute('src')
       if(!curVideo || curVideo!==videoSrc){
+        if(myaudio.played){
+          myaudio.pause();
+        }
         myaudio.setAttribute('src',videoSrc)
       }
-      if(!btnStatus && myaudio.paused){
-        myaudio.play();
+      console.log('btnStatus',btnStatus)
+      if(!btnStatus){
+        $('.contentlist .playBtn').removeClass('active')
         $(e.currentTarget).addClass('active')
-      }else if(btnStatus && myaudio.played){
-        myaudio.pause();
+        if(myaudio.paused){
+          myaudio.play();
+        }
+      }else if(btnStatus){
         $(e.currentTarget).removeClass('active')
+        if(myaudio.played){
+          myaudio.pause();
+        }
       }
     })
   })
